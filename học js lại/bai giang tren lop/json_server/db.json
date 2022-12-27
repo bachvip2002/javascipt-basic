@@ -1,0 +1,16 @@
+{
+    "sinhvien":[
+        {
+            "msv":"ph88888",
+            "hoten":"Nguyen Van 88888"
+        },
+        {
+            "msv":"ph222",
+            "hoten":"Nguyen Van 2222"
+        },
+        {
+            "msv":"ph333",
+            "hoten":"Nguyen Van 333"
+        }
+    ]
+}

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function ass1(){
+            return new Promise(resolve => {
+                setTimeout(() => {
+                    let ass1 = parseFloat(prompt('Nhập điểm ass1'))
+                    resolve(ass1)
+                },1000)
+            })
+        }
+
+        function ass2(){
+            return new Promise(resolve => {
+                setTimeout(() => {
+                    let ass2 = parseFloat(prompt('Nhập điểm ass2'))
+                    resolve(ass2)
+                },4000)
+            })
+        }
+
+        Promise.all([ass1(), ass2()])
+            .then(result => {
+                console.log(result)
+                let avgScore = (result[0] + result[1])/2
+                alert('Điểm trung bình của bạn là: ' + avgScore.toFixed(2))
+            })
+    </script>
+</body>
+</html>

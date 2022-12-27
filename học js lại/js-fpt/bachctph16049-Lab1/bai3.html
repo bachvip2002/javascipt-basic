@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .user_item {
+            color: green;
+            text-decoration: underline;
+            cursor: pointer;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+    <ul id="target">
+
+    </ul>
+</body>
+<script>
+    var users = [
+        {
+            id: 1, name: "bach", gender: 1
+        },
+        {
+            id: 2, name: "anh", gender: 2
+        },
+        {
+            id: 3, name: "linh", gender: 2
+        },
+        {
+            id: 4, name: "nhat", gender: 1
+        }
+    ];
+    function menu() {
+        var target = document.querySelector("#target");
+        var liELm = [];
+        // var liELm = document.createElement('li'); de day la sai 
+        users.forEach(function (value, index) {
+            // console.log(value, index)
+            liELm[index] = document.createElement('li');
+            liELm[index].setAttribute('class', 'user_item');
+            value.gender = value.gender == 1 ? "nam" : "nu";
+            liELm[index].innerHTML = `id: ${value.id} - ten: ${value.name} - tuoi: ${value.gender}`;
+            // console.log(liELm)
+            target.appendChild(liELm[index])
+        });
+    }
+    
+
+    menu()
+
+
+</script>
+
+</html>

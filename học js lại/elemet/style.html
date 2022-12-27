@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="bach">
+        asd
+    </div>
+</body>
+<script>
+    var a = document.querySelector(".bach");
+    console.log([a]); // hien thi tat ca thuoc tinh
+    console.log(a.style); // hien thi tuoc tinh con trong thuoc tinh style
+    //nhung cai thuoc tinh kich thuoc thuong a se cho vao css chu k code o js
+    // co the css o js neu nhu muon thay doi doi tuong o file css
+    
+    // a.style.backgroundColor = "red";
+    // a.style.lineHeight = "50px";
+    // a.style.width = "50px";
+
+    //goi doi tuong object lon -> su dung ham assign de gan cac thuoc tinh vao 1 object(a.style)
+    Object.assign(a.style,
+        {
+            backgroundColor : "red",
+            lineHeight : "50px",
+            width : "50px"
+        }
+    )
+</script>
+
+</html>

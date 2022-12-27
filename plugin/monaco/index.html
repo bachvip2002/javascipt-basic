@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Monaco editor</title>
+    <link rel="stylesheet" data-name="vs/editor/editor.main"
+        href="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.20.0/min/vs/editor/editor.main.min.css">
+</head>
+
+<body>
+    <div id="container" style="height:400px;border:1px solid black;"></div>
+    <iframe id="editorPreview" frameborder="0" style="width:100%;border:1px solid rgb(133, 23, 23)"></iframe>
+    <button onclick="run()">run</button>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.26.1/min/vs/loader.min.js"></script>
+    <script>
+        // require is provided by loader.min.js.
+        const editorPreview = document.getElementById('editorPreview').contentWindow.document;
+        console.dir(document.getElementById('editorPreview'));
+        require.config({ paths: { 'vs': 'https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.26.1/min/vs' } });
+        require(["vs/editor/editor.main"], () => {
+            model = monaco.editor.create(document.getElementById('container'), {
+                value: ``,
+                language: "html",
+                theme: 'vs-dark',
+            });
+            // console.log(model.getValue());
+            editorPreview.body.innerHTML = model.getValue();
+
+            model.onDidChangeModelContent(() => {
+                editorPreview.body.innerHTML = model.getValue();
+            });
+
+        });
+
+        function run() {
+            // console.log(model.getValue());
+            editorPreview.body.innerHTML = model.getValue();
+        }
+
+    </script>
+</body>
+
+</html>

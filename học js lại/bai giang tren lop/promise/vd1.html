@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="target">
+
+    </div>
+</body>
+<script>
+    var target = document.querySelector('.target');
+
+    //callback kieu ts la gai tri
+    function a(ts) { //dua vao gia tri cua function a
+        return ts;
+    }
+    function b_a(ts) {
+        return ts;
+    }
+    function c_ba(ts) {
+        console.log(`in ra gia tri duoc nhan ${ts}`);
+    }
+
+    function main() {
+        c_ba(b_a(a(5)))
+    }
+    main();
+
+
+    
+
+    
+
+    
+</script>
+
+</html>

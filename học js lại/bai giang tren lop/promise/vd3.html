@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+
+    // callback - promise de xu ly bat dong bo
+
+    //promise
+
+    var p1 = new Promise(
+        function (resolve, reject) {
+            setTimeout(
+                function () {
+                    var a = prompt();
+                    if(a > 5){
+                        resolve('diem dat'); // ham resolve nhan data va xu ly logic o duoi
+                    }else{
+                        reject('diem ban chua dat');
+                    }
+                    //resolve nhan data
+
+                    //reject('xu ly that bai') 
+                }
+                , 2000);
+        }
+
+        //resolve la phuong thuc then()
+        //reject la phuong thuc catch()
+    );
+
+    //call object p1 with class promise
+    p1
+        .then(
+            function (data) {
+                console.log(data)
+                return 1;
+                //code logic khi resolve co du lieu
+            }
+        )
+
+        .then(
+            function(data){
+                console.log(data) // in ra 1 (vi data tra ve o tren la 1 khi ma ta goi lai tham so la function cu thi chinh la 1)
+            }
+        )
+
+        .catch(
+            function (err) {
+                //code logic khi reject co du lieu
+                console.log(err)
+            }
+        )
+
+
+
+</script>
+
+</html>

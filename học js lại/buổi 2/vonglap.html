@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //else if chi lay 1 cai true duy nhat
+        var ba = 3;
+        if (ba == 3) {
+            console.log(`ban dung 1`);
+        } else if (ba > 1) {
+            console.log(`ban dung 1`);
+        }
+
+        if (ba == 3) {
+            console.log(`ban dung 2`);
+        }
+        if (ba > 1) {
+            console.log(`ban dung 2`);
+        }
+
+        //vong lap 
+        var mang = new Array(
+            'bach',
+            'abc',
+            'tuyet'
+        );
+
+        //length luu do dai ca chuoi va mang
+        for (i = 0; i < mang.length; i++) {
+            console.log(mang[i]);
+        }
+
+
+        //vong lap lay doi tuong trong object va mang va chuoi
+        var doituong = {
+            name: "bach",
+            adress: "thanh hoa",
+            age: 18
+        }
+        for (const key in doituong) {//tao key trong doi tuong de lap
+            console.log(key);
+        }
+        for (const key in mang) {//tao key trong mang de lap
+            console.log(mang[key]);
+            console.log(key);
+        }
+        for (const key in doituong.name) {//tao key de lap chuoi
+            console.log("chuoi: " + key);
+        }
+
+        //vong lap for of khong can su dung lam gan nhu giong for in
+        // for (const value of doituong) {
+            
+        // }
+
+        //mang 2 chieu
+
+        var mang2 = new Array(
+            ['chu','bach'],
+            ['truong','anh'],
+            ['hieu','pc']
+        )
+
+        for(const key in mang2){
+            // console.log(key);
+            for(const key2 in mang2){
+                console.log(mang2[key][key2]);
+            }
+        }
+
+    
+
+    </script>
+</body>
+
+</html>

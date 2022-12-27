@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #color {
+            display: block;
+            height: 30px;
+            line-height: 30px;
+            margin-bottom: 20px;
+            width: 200px;
+            color: black;
+        }
+
+        h1 {
+            color: brown;
+        }
+
+        #target {
+            border: 1px solid #000;
+            min-height: 300px;
+        }
+
+        .title {
+            color: red;
+            font-family: arial;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Y1</h1>
+    <input type="text" id="txtInput" value="33691E">
+    <h3>Input text</h3>
+    <h1>Y2</h1>
+    <div id="target">
+
+    </div>
+</body>
+<script>
+    function y1() {
+        var h3Text = document.querySelector("h3");
+        var txtInput = document.querySelector("#txtInput");
+        txtInput.onkeyup = function (a) {
+            h3Text.style.color = `#${a.target.attributes.value.value}`;//lay value goc cua input
+            h3Text.innerHTML = `${a.target.value}`
+        }
+    }
+    y1()
+    function y2() {
+        var target = document.querySelector("#target");
+        var h2El =document.createElement("h2");
+        h2El.innerText = "Hello Polytechnic";
+        h2El.setAttribute("class","title");
+        target.appendChild(h2El);
+        
+    }
+    y2()
+
+
+
+</script>
+
+</html>

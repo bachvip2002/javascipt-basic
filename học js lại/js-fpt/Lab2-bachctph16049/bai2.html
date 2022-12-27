@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    String <input type="text" value=""><br>
+    Number <input type="number" value=""><br>
+    <button>Convert</button>
+    <h1></h1>
+</body>
+<script>
+    var inp = document.querySelector(`input[type=text]`);
+    var inp2 = document.querySelector(`input[type=number]`);
+    var h1 = document.querySelector('h1');
+    var btn = document.querySelector(`button`).onclick = function (a) {
+        //    console.log(inp[0].value.substring(0,inp2.value))
+        var number = inp.value.substring(0, inp2.value).length;
+        var slend = inp.value.substring(number, inp.value.length);
+        console.log(slend.length)
+        var cham = '';
+        if (inp2.value == "") {
+            var hienthi = inp.value;
+            cham = '.'
+        } else {
+            var hienthi = inp.value.substring(0, inp2.value);
+            for (var i = 0; i < slend.length; i++) {
+                cham += '.';
+            }
+        }
+        console.log(hienthi)
+        h1.innerHTML = `${hienthi}${cham}`;
+    };
+
+</script>
+
+</html>

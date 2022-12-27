@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    //trong obj có thuộc tính,phương thức không tồn tại nhưng vẫn muốn xử lý thì bị báo lỗi ta sử dụng (?.) thì giá trị sẽ thành undefind mà k bị báo lỗi
+    const obj = {
+        name: 'Alice',
+        cat: {
+            name: 'Dinah',
+            // cat2: {
+            //     name: 'Dinah2',
+            //     cat3: {
+            //         name: 'Dinah3'
+            //     }
+            // }
+        }
+    };
+    if (
+        // obj.cat
+        // && obj.cat.cat2
+        // && obj.cat.cat2.cat3
+        // den chet a :)))
+        obj.cat.cat2?.cat3
+    ) {
+        console.log(obj.cat.cat2.cat3.name);
+    }
+
+    console.log(obj.cat.cat2?.cat3.name);
+
+</script>
+
+</html>

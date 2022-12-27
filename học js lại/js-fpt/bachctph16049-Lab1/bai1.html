@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #target {
+            width: 60px;
+            height: 60px;
+            background-color: #33691E;
+            transition: all 0.3s;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="target">
+
+    </div>
+</body>
+<script>
+    var target = document.querySelector("#target");
+    targetFn(target)
+    console.log([target])
+    function targetFn(ts) {
+        ts.onmouseover = function (a) {
+            console.log(a.target.style)
+            a.target.style.backgroundColor = "red"
+        }
+        ts.onmouseout = function (a) {
+            a.target.style.backgroundColor = "#33691E"
+        }
+    }
+
+    
+
+</script>
+
+</html>

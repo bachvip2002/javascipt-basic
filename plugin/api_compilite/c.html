@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" data-name="vs/editor/editor.main"
+        href="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.20.0/min/vs/editor/editor.main.min.css">
+</head>
+
+<body>
+    <div id="container" style="height:400px;border:1px solid black;"></div>
+    <iframe id="editorPreview" frameborder="0" style="width:100%;border:1px solid rgb(133, 23, 23)"></iframe>
+    <button onclick="run()">run</button>
+</body>
+<script src="https://unpkg.com/axios@1.0.0/dist/axios.min.js"></script>
+<script src='https://unpkg.com/monaco-editor@0.8.3/min/vs/loader.js'></script>
+<script>
+    const editorPreview = document.getElementById('editorPreview').contentWindow.document;
+    console.dir(document.getElementById('editorPreview'));
+    require.config({ paths: { 'vs': 'https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.26.1/min/vs' } });
+    require(["vs/editor/editor.main"], () => {
+        model = monaco.editor.create(document.getElementById('container'), {
+            value: `#include <stdio.h>
+int main() {
+  int myNumbers[] = {25, 50, 75, 100};
+  printf("%d", myNumbers[0]);
+  return 0;
+}`,
+            language: "c",
+            theme: 'vs-dark',
+        });
+    });
+
+    const config = {
+        method: "post",
+        url: "https://codex-api.herokuapp.com/",
+        headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+        },
+        data: {
+            code: ``,
+            language: "c",
+        }
+    }
+
+    function run() {
+        config.data.code = model.getValue();
+        // console.log(config);
+        axios(config)
+            .then(
+                data => {
+                    console.log(data);
+                    if (data.data.output) {
+                        editorPreview.body.innerHTML = data.data.output;
+                    } else {
+                        editorPreview.body.innerHTML = data.data.error;
+                    }
+                }
+            )
+            .catch(
+                data => {
+                    console.log(data);
+                }
+            )
+    }
+
+
+
+</script>
+
+</html>

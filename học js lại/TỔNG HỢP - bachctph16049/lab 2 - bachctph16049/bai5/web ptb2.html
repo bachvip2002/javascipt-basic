@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function ptb2(){
+        var a = prompt('nhap a: ');
+        var b = prompt('nhap b: ');
+        var c = prompt('nhap c: ');
+        parseInt(a);
+        parseInt(b);
+        parseInt(c);
+        var delta = Math.pow(b,2) - 4*a*c;
+        if(a==0){
+            if(b==0){
+                document.write('phuong trinh vo so nghiem');
+            }else{
+                document.write('gia tri phuong trinh bac 1 la : '+(-c/b));
+            }
+        }else{
+            document.write('thuc hien phuong trinh bac 2<br>');
+           if(delta>0){
+            var x1 = (-b + Math.sqrt(delta))/2*a;
+            var x2 = (-b - Math.sqrt(delta))/2*a;
+            document.write('phuong trinh co 2 nghiem la <br>x1: '+x1 +'<br>x2: '+x2);
+           }else if(delta==0){
+               var x0 = -b/(2*a);
+           }else{
+               document.write('phuong trinh vo nghiem');
+           }
+        }
+    }
+    ptb2();
+    </script>
+</body>
+</html>

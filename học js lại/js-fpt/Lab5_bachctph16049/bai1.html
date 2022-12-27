@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    function thucday(viectieptheo) {
+        console.log('b1. da ngu day!');
+        viectieptheo();
+    }
+
+    function danhrang(viectieptheo) {
+        console.log('b2.dang danh rang');
+        setTimeout(
+            () => {
+                console.log('da danh rang xong')
+                viectieptheo();
+            }, 3000
+        )
+    }
+
+    function thayquanao(viectieptheo) {
+        console.log("b3. dang thay quan ao");
+        setTimeout(
+            () => {
+                console.log("da thay quan ao xong");
+                viectieptheo();
+            }, 2000
+        )
+    }
+
+    function dihoc(viectieptheo) {
+        viectieptheo();
+    }
+
+    thucday(function () {
+        danhrang(function () {
+            thayquanao(function () {
+                dihoc(function () {
+                    console.log('b4. dang chuan bbi di chuyen');
+                    setTimeout(function () {
+                        console.log('da den truong');
+                    }, 4000)
+                })
+            })
+        })
+    })
+
+    
+</script>
+
+</html>

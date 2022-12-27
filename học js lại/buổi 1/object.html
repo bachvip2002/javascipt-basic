@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var mail = 'gmail';
+        var myobject = {
+            name:"bach",
+            age:"23",
+            [mail]:"bachchu@gamil.com",
+            mail:"bachctph@fpt",
+            getname:function() {
+                this.age = "omg";
+                return this.age;
+            }
+        }
+        delete myobject.name; //xoa name
+        // delete myobject
+        console.log(myobject);
+        console.log(myobject.age);
+        console.log(myobject.getname());
+    </script>
+</body>
+</html>

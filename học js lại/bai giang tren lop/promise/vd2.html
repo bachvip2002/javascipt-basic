@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="target">
+
+    </div>
+</body>
+<script>
+    var target = document.querySelector('.target');
+
+    //callback tham so kieu function
+    //callback hell
+    function thuc_day(viecnaodo) {
+        viecnaodo();
+    }
+    function danh_rang(viecnaodo) {
+        viecnaodo();
+    }
+    function di_an_sang(viecnaodo) {
+        viecnaodo();
+    }
+
+    function main() {
+        thuc_day(function () {
+            danh_rang(function () {
+                di_an_sang(function () {
+                    console.log('omg');
+                })
+            })
+        })
+    }
+    main();
+
+</script>
+
+</html>

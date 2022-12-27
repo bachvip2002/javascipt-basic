@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        while(true){
+            var sodien = prompt('nhap so dien tieu thu: ');
+            parseInt(sodien);
+            if(sodien >= 0){
+                break;
+            }
+        }
+        if(sodien>=0 && sodien<=50){
+            document.write('so dien can phai dong la: '+(1.678*sodien));
+        }else if(sodien>=51 && sodien<=100){
+            document.write('so dien can phai dong la: '+(1.734*sodien));
+        }else if(sodien>=101 && sodien<=200){
+            document.write('so dien can phai dong la: '+(2.014*sodien));
+        }else if(sodien>=201 && sodien<=300){
+            document.write('so dien can phai dong la: '+(2.536*sodien));
+        }else if(sodien>=301 && sodien<=400){
+            document.write('so dien can phai dong la: '+(2.834*sodien));
+        }else if(sodien>=401){
+            document.write('so dien can phai dong la: '+(2.927*sodien));
+        }
+    </script>
+</body>
+</html>

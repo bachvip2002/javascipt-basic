@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+
+    const sinhvien = {
+        id: 1,
+        fullname: 'bach chu',
+        email: 'bachctph16049@fpt.edu.vn',
+        avatar: 'abc.jpg',
+        address: 'thanh hoa',
+        study_major: 'javascript nang cao',
+        avgScore: '6',
+        getAvgScore: function () {
+            return this.avgScore;
+        },
+        setAvgScore: function (point) {
+            this.avgScore = point;
+            return this.avgScore;
+        },
+        changeAddress: function (address) {
+            this.address = address;
+            return this.address;
+        },
+    }
+    console.log(sinhvien.getAvgScore())
+    console.log(sinhvien.setAvgScore(5))
+    console.log(sinhvien.changeAddress('ha noi'))
+    
+
+</script>
+
+</html>

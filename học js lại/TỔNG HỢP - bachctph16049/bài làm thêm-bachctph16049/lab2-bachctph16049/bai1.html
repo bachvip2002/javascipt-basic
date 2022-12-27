@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        while(true){
+            var a = Number(prompt('nhap so a: '));
+            if(a == Number(a)){
+                break;
+            }
+        }
+        var toantu = prompt('nhap toan tu: ');
+        while(true){
+            var b = Number(prompt('nhap so b: '));
+            if(b == Number(b)){
+                break;
+            }
+        }
+        if(toantu == '/'){
+            document.write('ke qua a / b = '+(a/b));
+        }else if(toantu == '*'){
+            document.write('ke qua a * b = '+(a*b));
+        }else if(toantu == '+'){
+            document.write('ke qua a + b = '+(a+b));
+        }else if(toantu == '-'){
+            document.write('ke qua a - b = '+(a-b));
+        }
+    </script>
+</body>
+</html>

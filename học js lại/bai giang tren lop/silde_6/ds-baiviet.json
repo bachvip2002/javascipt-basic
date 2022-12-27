@@ -1,0 +1,25 @@
+[
+    {
+        "id":1,
+        "title":"bai viet so 1",
+        "noi_dung":"day la bai viet so 1 luu bang json",
+        "comment":[
+            {
+                "id_cm":1,
+                "id_user":33,
+                "content":"day la noi dung binh luan"
+            },
+            {
+                "id_cm":2,
+                "id_user":33,
+                "content":"day la noi dung binh luan 2"
+            }
+
+        ]
+    },
+    {
+        "id":2,
+        "title":"bai viet so 2",
+        "noi_dung":"day la bai viet so 2 luu bang json"
+    }
+]

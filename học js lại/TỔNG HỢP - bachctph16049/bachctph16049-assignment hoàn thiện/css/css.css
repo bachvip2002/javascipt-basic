@@ -1,0 +1,76 @@
+.all{
+    width: 1349px;
+    margin: auto;
+    border: 1px solid black;
+}
+.menu{
+    width: 100%;
+    float: left;
+    background-color: orangered;
+    text-align: center;  
+}
+.menu ul li{  
+  display: inline-block;
+  padding: 0px 70px;
+}
+.menu ul li a{
+    text-decoration: none;
+    color: white;
+    font-size: 30px;
+}
+.menu ul li a:hover{
+    text-decoration: underline;  
+}
+.tieude{
+    background-color: black;
+    color: white;
+    width: 1349px;
+    height: 140px;
+}
+.tieude h1{
+    padding-top: 70px;
+}
+.noidung{
+    background-color: #F5F5F5;
+    width: 1349px;
+    height: 600px;
+    border-top: 1px solid orangered;
+    border-bottom: 1px solid orangered;
+}
+form{
+    text-align: center;
+}
+
+.left button{
+    width: 100px;
+    height: 50px;
+    position: relative;
+    right: 300px ;
+    top: 250px;
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+    border-radius: 5px ;
+}
+
+.right button{
+    border-radius: 5px ;
+    width: 100px;
+    height: 50px;
+    position: relative;
+    left: 300px;
+    top: 190px;
+    background-color:white ;
+    color:black;
+    border: 1px solid black;
+}
+.end{
+    padding: 1px;
+    width: 1347px;
+    background-color: orangered;
+    height: 50px;
+}
+.end h3{
+    position: relative;
+    color: white;
+}

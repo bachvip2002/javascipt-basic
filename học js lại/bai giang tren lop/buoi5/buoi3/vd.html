@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    //tim ma sinh vien fpoly trong dia chi email cua sv
+    // cau truc ma sv: 2 chu cai o dau , 5 chu so o cuoi
+    var email = 'bachctph16049@fpt.edu.vn';
+
+    //kiem tra xem co ton tai ma sv hay k
+    // bt_kiemtra = /ph\d\d\d\d\d/; // '/d' tim ca ky tu so , neu 5 cai d la tim 5 so tiep theo
+    // bt_kiemtra = /ph\d{5,7}/ ;//viet rut gon tim 5 ky tu so
+    bt_kiemtra = /p[h][0-9]{5}/ ; // liet ke ky tu tu 0 den ...
+    console.log(bt_kiemtra) ;//dat gia tri bt de ham test hieu dc
+    console.log(bt_kiemtra.test(email))// tra ve true neu tim dc false neu k tim dc
+    console.log(email.match(bt_kiemtra))// tra ve gai tri duoc tim neu k co thi null
+
+
+
+
+</script>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    function thucday() {
+        return new Promise(
+            function (resolve, reject) {
+                console.log('b1. da ngu day!');
+                resolve();
+            }
+        )
+    }
+
+
+    function danhrang() {
+        return new Promise(
+            function (resolve, reject) {
+                console.log('b2.dang danh rang');
+                setTimeout(
+                    () => {
+                        console.log('da danh rang xong')
+                        resolve();
+                    }, 3000
+                )
+            }
+        )
+    }
+
+    function thayquanao() {
+        return new Promise(
+            function (resolve, reject) {
+                console.log("b3. dang thay quan ao");
+                setTimeout(
+                    () => {
+                        console.log("da thay quan ao xong");
+                        resolve();
+                    }, 2000
+                )
+            }
+        )
+
+    }
+
+    function dihoc() {
+        return new Promise(
+            function (resolve, reject) {
+                console.log('b4. dang chuan bbi di chuyen');
+                setTimeout(function () {
+                    console.log('da den truong');
+                }, 4000)
+            }
+        )
+    }
+
+    console.log(danhrang())
+
+    thucday() //goi relsove = .then()
+    .then(()=> danhrang())
+    .then(()=> thayquanao())
+    .then(()=> dihoc())
+
+
+</script>
+
+</html>

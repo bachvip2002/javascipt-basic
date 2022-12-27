@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+        var lab = {}
+        let fullName = new Promise((resolve, reject) => {
+            let fullName = prompt('Enter fullname: ')
+            if(fullName != null){
+                resolve(fullName)
+            } else {
+                reject('Please enter fullname')
+            }
+        })
+        let subject = new Promise((resolve, reject) => {
+            let subject = prompt('Enter subject: ')
+            if(subject != null){
+                resolve(subject)
+            } else {
+                reject('Please enter subject')
+            }
+        })
+        let enterScore = (name, ms) => {
+            return new Promise((resolve, reject) => {
+                name = name.replace(' ', '_')
+                setTimeout(() => {
+                    lab[name] = parseFloat(prompt('Enter ' + name))
+                    if(lab[name] != null){
+                        resolve()
+                    } else {
+                        reject('Please enter ' + name)
+                    }
+                }, ms)
+            })
+        }
+        let avgScore = (obj) => {
+            return new Promise((resolve) => {
+                let lab1 = obj.lab_1*0.1
+                let lab2 = obj.lab_2*0.2
+                let lab3 = obj.lab_3*0.3
+                let final = obj.final_test*0.4
+                let result = lab1 + lab2 + lab3 + final
+                resolve(result)
+            })
+        }
+        let getRank = (score) => {
+            return new Promise(resolve => {
+                let rank = ''
+                if(score < 5){
+                    rank = 'học lực yếu'
+                } else if(score >= 5 && score < 7){
+                    rank = 'học lực trung bình'
+                } else if(score >= 7 && score < 8.5){
+                    rank = 'học lực khá'
+                } else if(score >= 8.5 && score <= 10){
+                    rank = 'học lực giỏi'
+                }
+                resolve(rank)
+            })
+        }
+        fullName
+            .then(() => subject)
+            .then(() => enterScore('lab 1', 0))
+            .then(() => enterScore('lab 2', 3000))
+            .then(() => enterScore('lab 3', 4000))
+            .then(() => enterScore('final test', 3000))
+            .then(() => avgScore(lab))
+            .then(data => getRank(data))
+            .then(rank => {
+                alert(rank)
+            })
+            .catch(err => {
+                alert(err)
+            })
+    </script>
+</body>
+</html>

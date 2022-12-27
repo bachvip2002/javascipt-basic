@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="">
+        <label for="">Subject Name</label>
+        <input type="text" name="String" value="">
+    </div>
+    <div class="">
+        <label for="">Point</label>
+        <input type="number" name="Number">
+    </div>
+    <input type="button" value="add">
+    <p id="student_name"></p>
+    <p id="student_age"></p>
+    <p id="student_address"></p>
+    <p>Subjects</p>
+    <ul id="subjects">
+
+    </ul>
+
+</body>
+<script>
+    var student = {
+        name: 'nguyen van a',
+        age: 20,
+        address: 'ha noi',
+        subjects: [
+            {
+                name: 'javascript',
+                point: 8
+            },
+            
+        ]
+    };
+
+    var sub_name = document.querySelector('input[type=text]');
+    var point_n = document.querySelector('input[type=number]');
+
+    var namest = document.querySelector('#student_name');
+    var age = document.querySelector('#student_age');
+    var address = document.querySelector('#student_address');
+    var subjects = document.querySelector('#subjects');
+
+    var add = document.querySelector('input[type=button]').onclick = function (a) {
+        let elm_new = document.createElement('li');
+        student.subjects.push({
+            name: sub_name.value,
+            point: point_n.value
+        })
+        console.log(student)
+        elm_new.innerHTML = `${sub_name.value} - ${point_n.value}`
+        subjects.appendChild(elm_new)
+    };
+
+    function obj_one() {
+        namest.innerHTML = `${student.name}`;
+        age.innerHTML = `${student.age}`;
+        address.innerHTML = `${student.address}`;
+
+        let elm_new = document.createElement('li');
+        elm_new.innerHTML = `${student.subjects[0].name} - ${student.subjects[0].point}`
+        subjects.appendChild(elm_new)
+    }
+
+    obj_one();
+
+</script>
+
+</html>

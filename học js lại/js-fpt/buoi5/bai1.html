@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    var sinhvien = {
+        msv: "ph16049",
+        name: "bach",
+        class: "web16302",
+        age: 18,
+        ngaynhaphoc: "04/01/2019",
+        diem: 6,
+        tinhhocluc: function () {
+            if (this.diem < 5) {
+                console.log('yeu');
+            } else if (this.diem >= 5 && this.diem < 7) {
+                console.log('hoc luc trung binh');
+            }
+            else if (this.diem >= 7 && this.diem < 8) {
+                console.log('hoc luc kha');
+            }
+            else if (this.diem >= 8 && this.diem < 10) {
+                console.log('hoc luc gioi');
+            }
+        },
+        thoigianratruong: function () {
+            thoigianhoc = 28;
+            console.log(this.ngaynhaphoc.replace('/', ''));
+        },
+    };
+    sinhvien.tinhhocluc()
+    sinhvien.thoigianratruong()
+
+    var convat = function (tay, chan, mat, con) {
+        this.con = con;
+        this.tay = tay;
+        this.chan = chan;
+        this.mat = mat;
+        this.run = function () {
+            console.log(`con ${this.chan} co ${this.chan} chan ${this.tay} tay ${this.mat} mat`);
+        }
+    }
+
+    var meocon = function (tay, chan, mat, con, haircolor) {
+        //goi ke thua bang xuly call cua doi tuong
+        convat.call(this, tay, chan, mat, con);
+
+        this.haircolor = haircolor;
+    }
+
+  
+
+    meo = new convat(2, 2, 2, "meo")
+    ran = new convat(0, 0, 2, "ran")
+    meo.run();
+    meo_con = new meocon(2, 2, 2, "meo", "black");
+    meocon.prototype.run = ()=> {
+        console.log(`con ${this.chan} co ${this.chan} chan ${this.tay} tay ${this.mat} mat ${this.haircolor} toc`);
+    }
+    meo_con.run()
+
+
+    var kethua = {
+        __proto__:convat
+    }
+    var kethua2 = convat;
+    console.log(kethua)//ke thua lop khac
+    console.log(kethua2)//lay ban ghi chua khe thua
+
+</script>
+
+</html>

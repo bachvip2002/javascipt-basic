@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="time" value="">
+    <button onclick="clickTime()">click</button>
+</body>
+<script>
+    function clickTime() {
+        console.log(document.querySelector('input[type=time]').value);
+    }
+    let t = "00:01";
+    let ms = Number(t.split(':')[0]) * 60 * 60 * 1000 + Number(t.split(':')[1]) * 60 * 1000;
+    console.log(ms);
+    setTimeout(
+        () => {
+            alert(1)
+        }, ms
+    )
+</script>
+
+</html>

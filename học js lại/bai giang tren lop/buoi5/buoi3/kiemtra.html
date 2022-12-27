@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="" method="post">
+        <input type="text" name="username"> <span id="error_user"></span> <br>
+        <input type="text" name="passwd"> <span id="error_pass"></span><br>
+        <button type="button">login</button> <br>
+    </form>
+</body>
+<script>
+    btn = document.querySelector("button");
+    btn.onclick = () =>{
+
+            username = document.querySelector('input[name=username]').value;
+            passwd = document.querySelector('input[name=passwd]').value;
+
+            error_user = document.querySelector('#error_user');
+            error_pass = document.querySelector('#error_pass');
+
+            console.log(username + '/' + passwd)
+            console.log(username.length)
+            var bt_username = /^[a-zA-Z0-9]{5,30}$/; // ^ bat dau , $ ket thuc
+            if(bt_username.test(username)){
+                error_user.innerHTML = 'ok';
+            }else{
+                error_user.innerHTML = 'ko';
+            }
+
+            //---------------kiem tra pass -------------
+            var bt_pass = /^[a-z0-9@!$%]{6,50}$/;
+            if(bt_pass.test(passwd)){
+                error_pass.innerHTML = 'ok';
+            }else{
+                error_pass.innerHTML = 'ko';
+            }
+        
+    }
+</script>
+</html>

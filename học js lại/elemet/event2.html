@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="" method="post">
+        <input type="text" name="" id="" class="text" value="">
+        <!-- <input type="text" name="" id="" class="text" value="212"> -->
+        <input type="checkbox" name="" id="">
+        <select name="" id="">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+        </select>
+    </form>
+
+    <div class="hienthi">
+
+    </div>
+</body>
+<script>
+
+    var text = document.querySelector('.text');
+    var check = text.nextElementSibling;
+    var select = check.nextElementSibling;
+    // var hienthi = select.nextElementSibling; //cung loai thuoc tinh thi moi next element dc 
+    var hienthi2 = document.querySelector('.hienthi');
+
+    console.log([check]);
+    console.log([text]);
+    console.log([select]);
+    // console.log([hienthi]);
+    console.log([hienthi2]);
+
+    // code cho dong 212 
+    // console.log(text.attributes.value);
+    // console.log(text.attributes.value.textContent);
+    // console.log(text.attributes.value.value);
+
+    text.oninput = function(a){
+        //console.log(a);//cac thuoc tinh khi nhan duoc gia tri
+        console.log(save_val = a.target.value);
+        hienthi2.innerHTML = `ban da nhap: ${save_val}`;
+    } 
+    check.onchange = function(a){
+        //console.log(a);
+        console.log(save_val = a.target.checked);
+        hienthi2.innerHTML = `ban click: ${save_val}`;
+    } 
+    select.onchange = function(a){
+        console.log(a);
+        console.log(save_val = a.target.value);
+        hienthi2.innerHTML = `ban click: ${save_val}`;
+    }
+    
+</script>
+
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    var chuoi_json = '{"msv":"ph123","name":"chu tat bach","subject":"javascript","age":19}';
+    console.log("chuoi json " + chuoi_json);
+    //chuyen chuoi thanh doi tuong
+    var obj_sv = JSON.parse(chuoi_json); //bien chuoi thanh object
+    console.log(obj_sv);
+    console.log("ho va ten: " + obj_sv.name);
+
+    //chuyen nguoc lai thanh chuoi 
+    var chuoi_2 = JSON.stringify(obj_sv); //bien object thanh chuoi
+    console.log(chuoi_2)
+
+    document.write("tuoi: " + obj_sv.age);
+</script>
+
+</html>

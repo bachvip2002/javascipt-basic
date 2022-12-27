@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+    .red {
+        color: red;
+    }
+    .blue {
+        background-color:  rgb(55, 36, 161);
+    }
+</style>
+
+<body>
+
+    <div class="a   a-2">
+        <h1>ClassList</h1>
+    </div>
+    <script>
+        // lam viec voi thuoc tinh ClassList 
+        // class list cung la 1 object cac thuoc tinh sau cua classlist:
+        // add() //them class
+        // contains() //kiem tra co ton tai class
+        // remove() //xoa class
+        // toggle() //dong mo class (neu co class thi xoa con nguoc lai k co thi them)
+
+        var a = document.querySelector(".a");
+        console.log([a]);
+        console.log(a.classList);
+        console.log(a.classList.length);
+        console.log(a.classList.value);
+        a.classList.add("red","blue","bach");
+        a.classList.remove("red");
+        console.log(a.classList.contains("red"));
+        setInterval(() => {
+            a.classList.toggle("blue");
+        },1000);
+
+    </script>
+</body>
+
+</html>

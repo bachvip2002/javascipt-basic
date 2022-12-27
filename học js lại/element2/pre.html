@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <a href="https://www.w3schools.com/">
+        w3school
+    </a>
+    <br>
+    <a href="https://www.google.com.vn/?gws_rd=ssl">
+        google
+    </a>
+
+    <div class="">
+        abc
+        <button>
+            click
+        </button>
+    </div>
+</body>
+<script>
+    var a = document.querySelectorAll("a");
+    console.log(a);
+    for (var i = 0; i < a.length; i++) {
+        a[i].onclick = function(obj){
+            if(obj.target.href.startsWith('https://www.w3schools.com/')){
+                obj.preventDefault();//ngan chan hanh vi mac dinh
+            }
+            console.log(obj);//khi co su kien la the a nhung van kiem tra dc nho preventdefault()
+        }
+    }
+
+    document.querySelector('div').onclick = function(obj){
+        console.log('abc');
+        console.log(obj);
+    }
+
+    document.querySelector('button').onclick = function(obj){
+        obj.stopPropagation();
+        console.log('click');
+        console.log(obj);
+    }
+</script>
+
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    //call back
+    function home(subject,callback){
+        alert('mon dang hoc '+subject);
+        var score = prompt('diem dat duoc la');
+        callback(score,subject);
+    }
+
+    function check_point(point,subject){
+        if(point < 5){
+            alert('ban chua qua mon '+subject)
+        }else if(point >= 5 && point < 7){
+            alert('ban hoc luc trung binh '+subject)
+        }else if(point >= 7 && point < 9){
+            alert('ban hoc luc kha '+subject)
+        }else{
+            alert('ban hoc luc gioi '+subject)
+        }
+    }
+
+    home('js',check_point)
+</script>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <p>
+        1st Person Name
+        <input type="text" class="input">
+    </p>
+    <p>
+        1st Person Age
+        <input type="number" class="input">
+    </p>
+    <p>
+        1st Person Address
+        <input type="text" class="input">
+    </p>
+    <p>
+        2nd Person Name
+        <input type="text" class="input">
+    </p>
+    <p>
+        2nd Person Age
+        <input type="number" class="input">
+    </p>
+    <p>
+        2nd Person Address
+        <input type="text" class="input">
+    </p>
+    <div class="error"></div>
+    <button type="button">Show profile</button>
+
+    <ul id="target">
+
+    </ul>
+</body>
+<script>
+    var $ = document.querySelector.bind(document)
+    var $$ = document.querySelectorAll.bind(document)
+    var input = $$('.input');
+
+    function checkform() {
+        for (let i = 0; i < input.length; i++) {
+            var check = null;
+            if (input[i].value == '') {
+                check = false;
+                $('.error').innerHTML = "ban nhap con rong";
+            }
+        }
+        if (check == null) {
+            var st1 = [];
+            var st2 = [];
+            for (let i = 0; i < input.length; i++) {
+                if (i < 3) {
+                    st1.push(input[i].value)
+                } else {
+                    st2.push(input[i].value)
+                }
+            }
+
+            firstperson = {
+                __proto__: Person
+            }
+            secondperson = {
+                __proto__: Person
+            }
+
+            firstperson = new Person(st1[0], st1[1], st1[2]);
+            secondperson = new Person(st2[0], st2[1], st2[2]);
+
+        }
+    }
+
+    var Person = function (name, age, address) {
+        this.name = name;
+        this.age = age;
+        this.address = address;
+        this.showprofile = function () {
+            return `${this.name}  ${this.age}  ${this.address}`;
+        };
+    }
+
+    $('button').onclick = (a) => {
+        checkform()
+        li = document.createElement('li');
+        li.innerHTML = `firstperson: ${firstperson.showprofile()} / secondperson: ${secondperson.showprofile()}`;
+        $('#target').appendChild(li);
+    }
+
+</script>
+
+</html>

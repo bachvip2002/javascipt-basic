@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>List User</h1>
+    <ul id="List-user">
+
+    </ul>
+    <ul id="page">
+
+    </ul>
+</body>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script>
+
+    let params = new URLSearchParams(document.location.search);
+    console.log(params)
+    let page = params.get("page");
+    let per_page = parseInt(params.get("per_page")); //lay so ban ghi 1 trang , dat mac 
+    option = {
+        method: "GET",
+        url: "https://reqres.in/api/users?page="+page+"&per_page="+per_page,
+        reponseType: "json"
+    }
+
+    axios(option)
+        .then(function (data_res) {
+            List_data = data_res.data.data;
+            str_li = ""
+            List_data.forEach((item_user, index) => {
+                str_li += "<li>" + item_user.id + '...' + item_user.email + '</li>';
+            });
+            document.querySelector('#List-user').innerHTML = str_li;
+
+            //xu ly so trang
+            console.log(data_res)
+            li_page  = ""
+            for(i = 1; i <= data_res.data.total_pages; i++){
+                li_page += "<li><a href='?page="+i+"&per_page=3'>"+ i +"</a></li>" 
+            }
+            document.querySelector('#page').innerHTML = li_page;
+        })
+
+        .catch(function (err) {
+            console.log(err)
+        })
+
+</script>
+
+</html>

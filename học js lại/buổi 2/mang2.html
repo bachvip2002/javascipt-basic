@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        // bai nay se chi ta cach su dung vong lap voi database  
+        // luu y co 1 so vong lap tra ve vi khac php: khong chen han value vao giao dien duoc
+        var mang = new Array( //loai mang object sau nay hoc database se dung den
+            {
+                id: 1,
+                name: "bach",
+                age: 15,
+                adress: "thanh hoa",
+                course:[
+                    {
+                        name:"conbach",
+                        parent:1,
+                    },
+                    {
+                        name:"conbach2",
+                        parent:1,
+                    }
+                ]
+            },
+            {
+                id: 2,
+                name: "nhat",
+                age: 16,
+                adress: "thanh hoa",
+                course:[
+                    {
+                        name:"connhat",
+                        parent:2,
+                    },
+                    {
+                        name:"connhat2",
+                        parent:2,
+                    }
+                ]
+            },
+            {
+                id: 3,
+                name: "nhat",
+                age: 19,
+                adress: "ha noi"
+            },
+            {
+                id: 5,
+                name: "ngoc",
+                age: 17,
+                adress: "da nang"
+            },
+        )
+        
+        console.log(mang);
+        console.log(mang[0].name);
+
+
+       
+        // ------------\\\\\\\\------------C1: for in for of ------------\\\\\\\-------------------
+        //VD forin,forof dung cai nao dung dc
+        var i = 0;
+        for (const key in mang) {
+            i += mang[key].age;
+        }
+        console.log(i)
+        var a = 0;
+        for (const value of mang) {
+            a += value.age;
+        }
+        console.log(a)
+
+        var new_arr = mang ;
+        for (const key in new_arr) {
+            new_arr[key].age = 20;
+        }
+        console.log(new_arr)
+
+
+        //2 chieu
+        var new_arr2 = mang;
+        var new_arr_con = mang[0].course;
+
+        for (const key in new_arr2) {
+            console.log(new_arr2[key].id);
+            for (const key2 in new_arr_con) {
+                if(new_arr2[key].id == 1){
+                    new_arr_con[key2].parent = 2;
+                    console.log(new_arr_con[key2].parent);
+                }
+            }
+        }
+
+
+        // MỤC ĐÍCH CÁC HÀM LẶP SAU ĐỂ SỬA MẢNG CỦ TẠO RA MẢNG MỚI NHANH HƠN LÀ DÙNG VÒNG LẶP THUPNGWF//
+
+          // ------------\\\\\\\\------------C2: cac ham lap ngan gon hon nhung kho hieu hon ------------\\\\\\\-------------------
+
+
+          
+
+        //cac ham lap phan tu va xu ly cac gia tri trong cac phan tu
+        // - hieu cac vong lap nay
+        // mang can kiem tra.ham lap cac phan tu ( tham so truyen vao  ) //ham nay se tra ve gia tri nhu cac ham sau:
+
+
+        //---- cac ham sau function(mang_id,index) tham so dau la vi nhu doi tuong object---
+
+        //------forech()-----------
+        var mang_all = mang.forEach(
+            function (mang_it, index) { //mang nay khong tra ve duoc gia tri
+                if (mang_it.age == 19) { //forearch khong xai duoc cac tu khoa break ,..
+                    console.log(mang_it, index);
+                }
+                // if(mang_it.age == 19){ forearch khong xai duoc cac tu khoa break ,..
+                //     break
+                // }
+            });
+        
+
+
+        //vi khong dung duoc tu khoa nen phai dung cac vong lap every() ,some() va nhung vong lap nay de duyen qua cac mang object
+
+
+
+        //------every()-----------
+        var save_new = mang.every( //ham every khi lap se tra ve true neu tat ca gia tri trong phan tu khop nhau voi dieu kien gia tri dat ra
+            function (mang_it, index) {
+                return mang_it.age >= 15; //tra ve doituong.thuoctinh >= "gia tri" (day la dieu kien tra ve)
+            });
+        console.log(save_new);
+
+
+        //------some()-----------
+        var save_new2 = mang.some( //ham some khi lap se tra ve true neu 1 trong cac gia tri trong phan tu khop nhau voi dieu kien gia tri dat ra
+            function (mang_it, index) {
+                return mang_it.age == 15;//tra ve doituong.thuoctinh == "gia tri"
+            });
+        console.log(save_new2);
+
+
+        //------find()-----------
+        var save_new3 = mang.find( //ham find khi lap se tra ve 1 phan tu gan nhat theo dk object co dk 
+            function (mang_it, index) {
+                return mang_it.name == "nhat"; //tra ve doituong.thuoctinh == "gia tri"
+            });
+        console.log(save_new3);
+
+
+
+        //------filter()-----------
+        var save_new4 = mang.filter( //ham filter khi lap se tra cac phan tu khi object co dk 
+
+            function (mang_it, index) {
+                return mang_it.name == "nhat";  //tra ve doituong.thuoctinh == "gia tri"
+            });
+        console.log(save_new4);
+
+
+
+        //------map()-----------
+        var save_new5 = mang.map( //ham map khi lap se tra cac phan tu cu nhung object tra ve gia tri moi 
+            function (mang_it, index) {
+                // console.log(mang_it);
+                return {
+                    id: 1,
+                    name: "bach",
+                    age: 15,
+                    adress: `${mang_it.adress} thanh hoa`,
+                    age_one: `${mang_it.age + 1}`
+                } // cac gia tri moi cua bject
+            });
+
+        console.log(save_new5);
+
+        //------reduce()-----------   
+
+
+        //-------------------cach 2 co the tao gia tri function o ngoai roi cho vao lam tham so vi day la cac ham xu ly ----------------
+
+
+
+        //---------------------------hieu hon ve bien duoc gian function---------------------------------------
+
+
+        //neu tham so truyen vao la savefc thi se la xu ly cua 1 function ten la savefc()
+        //neu tham so truyen vao la savefc() thi se la gia tri dc tra ve cua savefc()
+
+
+
+        var save_fc = function (mang_it, index) {
+            return mang_it.name == "nhat"; //tra ve nhieu phan tu gia tri la object theo dieu kien
+        }
+
+        var save_new4 = mang.filter(save_fc); //gia tri nhan ve la dk theo "nhat"
+        console.log(save_new4);
+
+
+        //loai bien duoc gan gia tri tra ve cua function 
+        var save_fc2 = function (mang_it, index) {
+            return mang_it + index; //tra ve nhieu phan tu gia tri la object theo dieu kien
+        }
+        console.log(save_fc2(2, 2));
+
+    </script>
+</body>
+
+</html>

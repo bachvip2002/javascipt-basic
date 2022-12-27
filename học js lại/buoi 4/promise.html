@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>
+        Promise
+        - Sync : đồng bộ ( chạy từ theo tuần tự )
+
+        - Async : bất đồng bộ (chạy không theo tuần tự)
+        setTimeout, setInterval, XMLHttpRequest,
+        fetch, file reading, request animation frame
+    </h1>
+
+    <script>
+        // nỗi đau khi callback quá nhiều
+        //callback hàm trong hàm quá nhiều thông qua VD:
+        setTimeout(function name() {
+            console.log(1) //viec 1
+            setTimeout(function name() {
+                console.log(2) //viec 2
+                setTimeout(function name() {
+                    console.log(3) //viec 3
+                    setTimeout(function name() {
+                        console.log(4) //viec 4 --> muốn thực thi việc 4 
+                                       // thì phải dựa vào các callback trên chạy hết 
+                    }, 1000)
+                }, 1000)
+            }, 1000)
+        }, 1000)
+
+
+        var promise = new Promise(
+            // excutor
+            function(resolve,reject) {
+                //logic
+                //thanh cong resolve()
+                //that bai reject()
+                resolve('dung roi day')
+            }
+        );
+
+        promise
+        .then(function(){
+            console.log('dung')
+        })
+        .catch(function(){
+            console.log('loi')
+        })
+        .finally(function(){
+            console.log('song song')
+        })
+    </script>
+</body>
+
+</html>

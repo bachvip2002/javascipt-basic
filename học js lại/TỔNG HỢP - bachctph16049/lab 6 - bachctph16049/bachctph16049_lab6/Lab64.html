@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+#container{
+    width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+div{
+    margin: 8px 0;
+}
+label{
+    width: 100px;
+    display: inline-block;
+}
+</style>
+<body>
+    <div id="container">
+        <p>Form Đăng Ký</p>
+    <div><label>Họ: </label>
+        <input type="text" id="ho" /><br/>
+    </div>
+    <div>
+        <label>Tên: </label>
+        <input type="text" id="ten" />
+    </div>
+    <div>
+        <label>Ngày sinh: </label>
+        Ngày: <input type="number" min="1" max="31" id="ngay" />
+        Tháng: <input type="number" min="1" max="12" id="thang" />
+        Năm: <input type="number" min="1900" max="2021" id="nam" />
+    </div>
+    <div><label>Giới tính: </label>
+        <input type="radio" id="gioitinhnam" name="gioitinh" value="Nam">Nam
+        <input type="radio" id="gioitinhnu" name="gioitinh" value="Nu">Nữ
+    </div>
+    <div><label>Số điện thoại: </label>
+        <input type="number" id="sdt" />
+    </div>
+    <div><label>Sở thích: </label>
+        <input type="checkbox" id="sothich">Đọc sách
+        <input type="checkbox" id="sothich">Xem phim
+        <input type="checkbox" id="sothich">Nghe nhạc
+        <input type="checkbox" id="sothich">Đá bóng
+        <input type="checkbox" id="sothich">May vá
+        <input type="checkbox" id="sothich">Khác
+        <input type="text" id="sothichkhac" style="display: none">
+    </div>
+    <div><button type="button" onclick="check()">Đăng ký</button></div>
+    </div>
+    <script>
+        var sothich = document.querySelectorAll("#sothich");
+        sothich[sothich.length-1].addEventListener("click",function(){
+            if(this.checked == true){
+                document.querySelector("#sothichkhac").style.display = "";
+            } else {
+                document.querySelector("#sothichkhac").style.display = "none";
+            }
+        });
+        function check(){
+            var ho = document.querySelector("#ho");
+            if(ho.value.length == 0){
+                alert("Vui lòng nhập họ !");
+            }
+            var ten = document.querySelector("#ten");
+            if(ten.value.length == 0){
+                alert("Vui lòng nhập tên !");
+            }
+            var ngay = document.querySelector("#ngay");
+            var thang = document.querySelector("#thang");
+            var nam = document.querySelector("#nam");
+            if(ngay.value.length == 0 || thang.value.length == 0 || nam.value.length == 0){
+                alert("Vui lòng nhập đầy đủ ngày tháng năm !");
+            }
+            var gioitinhnam = document.querySelector("#gioitinhnam");
+            var gioitinhnu = document.querySelector("#gioitinhnu");
+            if(gioitinhnam.checked == false && gioitinhnu.checked == false){
+                alert("Vui lòng chọn giới tính !");
+            }
+            var sdt = document.querySelector("#sdt");
+            if(sdt.value.length < 10 || sdt.value.length > 11){
+                alert("Vui lòng nhập lại sdt !");
+            }
+            var kt = 0;
+            for(var i = 0;i < sothich.length;i++){
+                if(sothich[i].checked == true){
+                    kt = 1;
+                }
+            }
+            if(kt == 0){
+                alert("Vui lòng chọn sở thích !");
+            }
+            // if(sothich[length-1].checked == true){
+            //     document.querySelector("#sothichkhac").style.display = "";
+            // }
+        }
+    </script>
+</body>
+</html>

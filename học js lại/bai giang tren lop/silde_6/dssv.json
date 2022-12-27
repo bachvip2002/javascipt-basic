@@ -1,0 +1,20 @@
+[
+    {
+        "msv":"ph123",
+        "name":"chu tat bach",
+        "subject":"javascript",
+        "age":19
+    },
+    {
+        "msv":"ph124",
+        "name":"le lenh minh",
+        "subject":"php2",
+        "age":20
+    },
+    {
+        "msv":"ph125",
+        "name":"nguyen van hoa",
+        "subject":"php2",
+        "age":23
+    }
+]

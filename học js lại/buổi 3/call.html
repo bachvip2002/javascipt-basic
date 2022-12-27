@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //------------call back la hàm trong hàm---------------
+        // ------------------------------dung gia tri function nhu tham so ------------------------------
+        //call back1
+        function name(ts) {
+            ts("bach");// truyen gia tri vao ham
+        }
+        function lastname(name) {
+            console.log("chu " + name);
+        }
+
+
+        name(lastname);//tham so nay chinh la xu ly
+
+
+
+        //call back2
+
+        var couser = new Array(
+            "java",
+            "php",
+            "py"
+        );
+
+        // (2) ---- tao ham contructs de ham bach() dc hieu mac dinh ham bach la tu dinh nghia
+        Array.prototype.bach = function (callback) { //tham so chinh la ham dang bi rong
+            console.log(this);//duoc hieu la couser
+            for (var i = 0; i < this.length; ++i) {
+                callback(this[i], i);//them tham so vao ham dang bi rong
+            }
+
+        }
+
+        // (1) ----tham so nhung no khong hieu dc vi bach() la ham tu dinh nghia
+        couser.bach(
+            function (value, index) {  // tham so chua duoc hieu
+                console.log(value, index);
+            }
+        ); //muc dich lap va hien thi cac phan tu va gia tri
+
+
+
+        function a(call) {
+            call("a day")
+            console.log(object.a)
+            console.log(object.b)
+        }
+        
+        function b(a) {
+            console.log(a);
+            console.log("da goi dc ham b");
+            object = {
+                a: 1,
+                b: 2
+            }
+            //khong can phai return 
+        }
+
+
+        a(b);
+
+
+
+        // y nghia cua callback la:
+        // 1) tao ham 1
+        // 2) goi ham 1 xu ly
+        // 3) tao ham 2
+        // 4) tham so cua ham 1 la gia tri function chinh la ham 2
+        // 5) khi truyen gia tri function vao roi tao goi gia tri ay tai ham 1
+
+        // ket qua chinh la buoc 2(goi ham 1 xu ly) ==> tong ca la gia tri cua ca 2 ham 
+
+    </script>
+</body>
+
+</html>

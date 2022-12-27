@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <a href="" class="a">
+        hi
+        <div class="h">ádasds</div>
+    </a>
+    <a href="" id="a">
+        ad
+    </a>
+    <input type="text" class="bach" id="name" value="2">
+    <input type="text" id="name">
+    <input type="text" id="name">
+    <div class="element"></div>
+
+    <button>
+        <!-- hàm click hiện tại đang rỗng -->
+        click
+    </button>
+
+
+</body>
+
+<script>
+    // các thanh phần trong thẻ
+    //1) <a></a> là thẻ (element)
+    //2) class,href,... là thuộc tính (atribute)
+    //3) <a> <h1>ben trong</h1> </a> ben trong the a la text
+
+    //document object => goi la doi tuong document
+
+
+    //---------------------dom element-----------------------
+    var a = document.querySelector(".a"); //doi tuong document tro vao element a  (de lay tat ca trong the a)
+    var b = document.querySelector("#a");
+    var c = document.querySelectorAll("#name"); // doi tuong object tro vao name 
+    // var d = document.querySelectorAll(".a #a"); // khong dung dc
+    var e = document.querySelector(".element");
+    var btn = document.querySelector("button");
+    console.log(typeof a);
+    console.log([a]); //kiem tra cac thuoc tinh cua object
+    console.log(a);
+    console.log(b);
+    console.log(c);
+    // console.log(d);
+    console.log(c[0]);
+
+    for (const key in c) {
+        if (key > 0) {
+            console.log(c[key]);
+        }
+    }
+
+    //-------------------- thay text trong the -----------------------
+
+    a.innerHTML = "<h1> bach </h1>"; // thay doi html trong the
+    b.innerText = "<h1> abcde </h1>"; // thay doi text trong the
+
+    //----------------------lay text---------------------------
+
+    console.log(a.innerHTML); // lay ca text va html
+    console.log(b.innerText);// lay moi text loai bo html
+    console.log(a.outerHTML); // lay ca the html
+
+
+    //-------------------- su kien the (atribute : event) -----------------------
+    function save_e() {
+        btn.onclick = function (cl) {
+            console.log(cl);//doi tuong khi duoc onclick
+            console.log(cl.target);
+            alert("doi ten thanh cong");
+            e.innerHTML = `<button class="abcd">off</button>`; //them element
+            
+            var click = document.querySelector(".abcd");
+            click.onclick = function (obj) {
+                // click.remove(); // cach 1
+               obj.path[0].remove(); // tim element can xoa xong tro vao ham xoa (danh cho doi tuong duoc click) 
+            }
+        }
+        return e.innerHTML;
+    }
+    save_e();
+
+
+    // btn.remove()
+
+
+    //de tach ra khong duoc
+
+    // if (save_e() != "") {
+    //     var click = document.querySelector(".abcd");
+    //     console.log(click)
+    //     click.onclick = function (obj) {
+    //         // console.log(click.remove()); // cach 1
+    //         console.log(obj.path[0].remove()); // tim element can xoa xong tro vao ham xoa (danh cho doi tuong duoc click) 
+    //     }
+    // }
+
+
+    // document.querySelector(".abc").onclick = function(){ // them su kien theo kieu nay no se khong nhan vi 
+    //     btn.innerHTML = "";
+    // };
+
+
+    //--------------------ham atribute---------------------
+    var atri = a.attributes; //lay tat ca atributes
+    console.log(atri);
+
+    c[0].setAttribute("class", "abc");//thay doi hoac dat atribute moi
+
+    var get = c[0].getAttribute("class");// lay value atribute
+    console.log(get);
+
+    var get_num = c[0].getAttribute("value");// lay value atribute
+    console.log(get_num);
+
+
+         //--------------------node---------------------
+
+</script>
+
+</html>

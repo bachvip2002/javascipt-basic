@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/codemirror.css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/theme/dracula.min.css"
+        integrity="sha512-gFMl3u9d0xt3WR8ZeW05MWm3yZ+ZfgsBVXLSOiFz2xeVrZ8Neg0+V1kkRIo9LikyA/T9HuS91kDfc2XWse0K0A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- The CodeMirror -->
+    <script src="assets/lib/codemirror.js" type="text/javascript"></script>
+    <!-- The CodeMirror Modes - note: for HTML rendering required: xml, css, javasript -->
+    <script src="assets/mode/xml/xml.js" type="text/javascript"></script>
+    <script src="assets/mode/clike/clike.js" type="text/javascript"></script>
+    <script src="assets/mode/javascript/javascript.js" type="text/javascript"></script>
+    <script src="assets/mode/css/css.js" type="text/javascript"></script>
+    <script src="assets/mode/php/php.js" type="text/javascript"></script>
+    <script src="assets/mode/htmlmixed/htmlmixed.js" type="text/javascript"></script>
+    <!-- CodeMirror Addons -->
+    <script src="assets/addon/selection/active-line.js"></script>
+    <script src="assets/addon/lint/lint.js"></script>
+    <link href="assets/addon/lint/lint.css" rel="stylesheet" type="text/css" />
+    
+    <link rel="stylesheet" href="css.css">
+</head>
+
+<body translate="no">
+    <section>
+        <div class="container">
+            <div class="code-container">
+                <textarea id="code"><!-- xml/html syntax -->
+                    
+                </textarea>
+            </div>
+            <iframe id="code_result" width="100%" height="500px" style="border: 5px solid gray">
+            </iframe>
+            <button onclick="run()">Run code!</button>
+        </div>
+    </section>
+    <script id="rendered-js">
+        var doc = document.getElementById('code_result').contentWindow.document;
+        var html_value;
+
+        var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
+            mode: "application/x-httpd-php",
+            theme: 'dracula',
+            lineWrapping: true,
+            smartIndent: false,
+            htmlMode: true,
+            autocorrect: false,
+            addModeClass: true,
+        })
+
+        function run() {
+            html_value = editor.getValue();
+            console.log(editor.getValue());
+            doc.open();
+            doc.write(html_value);
+            doc.close();
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="input">
+    <button type="button" id="check">Check</button>
+    <br>
+    <h2>Chuoi dao nguoc: <span id="output"></span></h2>
+    <h2>Ket qua chuoi vua nhap: <span id="result"></span></h2>
+</body>
+<script>
+    var $ = document.querySelector.bind(document);
+    var input = $('#input');
+    var check = $('#check');
+    var output = $('#output');
+    var result = $('#result');
+
+    check.onclick = function(){
+        event(this)
+    }
+    function event(a){
+        console.log(input.value)
+        var inputValue = input.value;
+        var kt = /B/;
+        if(inputValue !== ""){
+            var mang = inputValue.split("");
+            var mangrvs = mang.reverse();
+            var outputValue = mangrvs.join("");
+            output.innerText = outputValue;
+            if(inputValue === "Palinedrome"){
+                result.innerText = "la chuoi Palinedrome";
+            }else{
+                result.innerText = "khong phai la chuoi Palinedrome";
+            }
+
+            if(kt.test(inputValue)){
+                console.log(true)
+            }else{
+                console.log(false)
+            }
+            
+        }
+
+    }
+</script>
+</html>

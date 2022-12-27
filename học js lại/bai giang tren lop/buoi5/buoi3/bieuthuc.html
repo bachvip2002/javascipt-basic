@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    // 1 ky tu cua chuoi chinh la 1 phan tu
+    var ten = "chu tat bach";
+
+    // ham indexof dung de tim ky tu neu dung >= 0  neu sai -1
+    console.log(ten.indexOf("t"))
+    console.log(ten.indexOf("@"))
+    // ham slice cat doan chuoi theo ts truyen vao
+    console.log(ten.slice(1, 3))
+    // ham replace thay doi ky tu dau cua chuoi
+    console.log(ten.replace("h", 'K'))
+    // ham split cat ky tu giong nhau thanh mang
+    console.log(ten.split(" "))
+    // ham toUpperCase bien chuoi thuong thanh chu in hoa
+    console.log(ten.toUpperCase())
+    // dem phan tu trong chuoi
+    console.log(ten.length)
+
+
+    //-------------------bieu thuc chinh quy------------------
+    var chuoi = "Nguyen Van A";
+    var bt = /n/;// dinh nghia biey thuc de kiem tra -> dung bang dau //
+    //vd kiem tra ho ten co chu n hay khong
+    //test tim kiem chuoi phu hop voi mau neu co true sai false
+    console.log(bt.test(chuoi))
+    if (bt.test(chuoi)) {
+        console.log('trong chuoi co n')
+    } else {
+        console.log('trong chuoi k co n')
+    }
+
+    var bt2 = /n/gi; 
+    //g tim tat ca ky tu n
+    //i tim ca phan tu hoa
+    var chuoiTwo = chuoi.replace(bt2, '*');
+    console.log(chuoiTwo)
+    console.log(`chuoi goc: ${chuoi}`)
+
+    kq_exec = bt2.exec(chuoi);
+    console.log(kq_exec) //tra ve phan tu nao co ky tu duoc dat o bieu thuc chinh quy
+
+    kq_exec2 = chuoi.match(bt); // tra ve tat ca ky tu khong phan biet chu hoa hay thuong
+    console.log(kq_exec2)
+
+    
+</script>
+
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //object contrustor -> muc dinh tao object co cau truc giong nhau
+        function user(name,age){
+            this.age = age;//this la cua doi tuong duoc tao
+            this.name = name;
+            this.getName = function(){
+                return this.name; //this nay la cua get name
+            }
+        }
+
+        //them gia tri vao contrus o ngoai 
+        user.prototype.class = "k17"; //them gia tri vao object contrus (prototype la chuyen ve nguyen mau voi them duoc vao contrus) 
+        user.prototype.mon = function(){
+            return `${this.class} | ${this.age} `;
+        } 
+
+        //doi tuong duoc tao 
+        var bach = new user('bach','18');
+        var nhat = new user('nhat','18');
+
+        //nhat va bach deu so huu gia tri moi trong contrus
+        console.log(bach.class);
+        console.log(bach.mon());
+        console.log(nhat.class);
+        console.log(nhat.mon());
+
+        console.log(bach.age);
+        console.log(bach.getName());
+        console.log(nhat.school = "fpt poly");
+        console.log(nhat);
+        console.log(bach);
+
+
+        
+    </script>
+</body>
+</html>

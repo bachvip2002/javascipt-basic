@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .user_item {
+            color: green;
+            text-decoration: underline;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .btn {
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="form">
+        <div class="">
+            <label for="">ID</label>
+            <input type="number" id="addUserID" value="" placeholder="">
+        </div>
+        <div class="">
+            <label for="">Name</label>
+            <input type="text" id="addUserText" value="" placeholder="">
+        </div>
+        <div class="">
+            <label for="Gender">
+                <select name="" id="addUserGender">
+                    <option value="1" selected>male</option>
+                    <option value="2">female</option>
+                </select>
+            </label>
+        </div>
+    </div>
+    <div class="">
+        <button type="button" id="addAction">Add</button>
+    </div>
+    <div id="target">
+        <table>
+            <tr>
+                <th>tieu de</th>
+                <th>tieu de</th>
+                <th>tieu de</th>
+            </tr>
+            <tr>
+                <td>1123</td>
+                <td>1123</td>
+                <td>1123</td>
+            </tr>
+        </table>
+    </div>
+</body>
+<script>
+    // delete users[3];
+    var users = [
+        {
+            id: 1, name: "bach", gender: 1
+        },
+        {
+            id: 2, name: "anh", gender: 2
+        },
+        {
+            id: 3, name: "linh", gender: 2
+        },
+        {
+            id: 4, name: "nhat", gender: 1
+        }
+    ];
+    var target = document.querySelector("#target");
+    var id = document.querySelector('#addUserID');
+    var name = document.querySelector('#addUserText');
+    var gender = document.querySelector('#addUserGender');
+
+    function add(data) {
+        var btn = document.querySelector('#addAction').onclick = function (a) {
+            data.push({
+                id: parseInt(id.value),
+                name: `${String(name.value)}`,
+                gender: parseInt(gender.value),
+            })
+            var li_elm = document.createElement('li');
+            //them du lieu tu input vao li
+            li_elm.innerHTML = `id: ${id.value} - name: ${name.value} - gender: ${gender.value = gender.value == 1 ? 'nam' : 'nu'} <span class="btn">xoa<span <hr>`;
+            target.appendChild(li_elm);
+            remove_value();
+        }
+    }
+    add(users);
+
+    function show(data) {
+        // console.log(data)
+        data.forEach((value, index) => {
+            var li_elm = document.createElement('li');
+            li_elm.innerHTML = `id: ${value.id} - name: ${value.name} - gender: ${value.gender = value.gender == 1 ? 'nam' : 'nu'} <span class="btn">xoa<span> <hr>`;
+            target.appendChild(li_elm);
+        });
+    }
+    show(users);
+
+    function remove_value() {
+        var detele = document.querySelectorAll('.btn');
+        var li = document.querySelectorAll('li');
+        detele.forEach((value, key) => {
+            value.onclick = function (a) {
+                delete users[key];
+                console.log(users);
+                target.removeChild(li[key]);
+                // show(users)
+            };
+        })
+    }
+    remove_value();
+</script>
+
+</html>

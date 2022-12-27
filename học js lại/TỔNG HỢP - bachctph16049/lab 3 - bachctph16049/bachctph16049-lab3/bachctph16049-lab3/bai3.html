@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let so_bi_mat =3;// Math.round(Math.random()*100);
+    while (true){
+        let so_nhap = Number(prompt("Nhap so: "));
+        if (so_nhap === so_bi_mat){
+            document.write("Ban da doan dung so bi mat la: " + so_bi_mat);
+            break;
+        }else if(so_nhap > so_bi_mat){
+           alert("Ban da nhap so" + so_nhap + " lon hon so bi mat la: " + so_bi_mat);
+        }else {
+            alert("Ban da nhap so" + so_nhap + " nho hon so bi mat la: " + so_bi_mat)
+        }
+    }
+</script>
+</body>
+</html>

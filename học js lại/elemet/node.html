@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="cha">
+        <div class="kiemtra" contenteditable="" autocapitalize="">
+            <a href="">abc</a>
+        </div>
+        <div class="kiemtra2">
+            <a href="">abc</a>
+        </div>
+        <div class="kiemtra3" contenteditable="" autocapitalize="">
+            <a href="">abc</a>
+        </div>
+    </div>
+    <script>
+        var kt = document.querySelector(".kiemtra");
+        console.log(kt); // hien thi html cua object 
+        // kt.offsetLeft = 15;
+        console.log([kt]); // hien thi cac thuoc tinh cua object 
+        cha = kt.parentElement;//tra ve element cha
+        num = kt.childElementCount;//tra ve so element con
+        num2 = kt.children;//tra ve element con
+        num3 = kt.nextElementSibling;//tra ve 1 element tiep theo ngang hang
+        console.log(cha);
+        console.log(num);
+        console.log(num2);
+        console.log(num3);
+        console.log(cha.innerHTML);
+        console.log(cha.outerHTML);
+
+        var kt3 = document.querySelector(".kiemtra3");
+        var kt2 = document.querySelector(".kiemtra2");
+        console.log(kt2.innerHTML);
+        var save_click = kt2.onclick = function () {
+            kt2.innerHTML = kt2.innerHTML + 'abc';
+        }
+        kt3.onclick = function (save_click) {
+            kt3.innerHTML = kt3.innerHTML + 'abc';
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Email <input type="text" value="b">
+    <button>Convert</button>
+    <h1></h1>
+</body>
+<script>
+    var email = document.querySelector(`input`);
+    var h1 = document.querySelector(`h1`);
+
+    var button = document.querySelector(`button`).onclick = function (a) {
+        back()
+    }
+    function back() {
+        console.log(email,h1)
+        bt_email = /^[a-z][a-z0-9_\.]{5,32}@[a-z0-9]{2,}(\.[a-z0-9]{2,4}){1,2}$/i;
+        if(bt_email.test(email)){
+            h1.innerText = "true"
+        }else{
+            h1.innerText = "false"
+        }
+    }
+
+</script>
+</html>

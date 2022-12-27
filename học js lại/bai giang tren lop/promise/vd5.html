@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<Script>
+
+    //khong theo tuan tu --> cai nao chay thoi gian truoc thi di truoc nen se xu ly console: 1,4,3,2 
+    // setTimeout(
+    //     function () {
+    //         console.log(1)
+    //     }
+    //     , 1000)
+    // setTimeout(
+    //     function () {
+    //         console.log(2)
+    //     }
+    //     , 4000)
+    // setTimeout(
+    //     function () {
+    //         console.log(3)
+    //     }
+    //     , 3000)
+    // setTimeout(
+    //     function () {
+    //         console.log(4)
+    //     }
+    //     , 2000)
+
+
+    //theo tuan tu 1,2,3,4
+    promise = new Promise(
+        function (resolve, reject) {
+            setTimeout(
+                function () {
+                    console.log(1)
+                    return resolve();
+                }
+                , 1000)
+        }
+    );
+
+    promise
+        .then(function () {
+            return new Promise(function (resolve, reject) {
+                setTimeout(
+                    function () {
+                        console.log(2)
+                        return resolve();//tra ve de ...
+                    }
+                    , 4000)
+            })
+        })
+
+        .then(function () {
+            return new Promise(function (resolve, reject) {
+                setTimeout(
+                    function () {
+                        console.log(3)
+                        return resolve();//tra ve de ...
+                    }
+                    , 3000)
+            })
+        })
+
+        .then(function () {
+            return new Promise(function (resolve, reject) {
+                setTimeout(
+                    function () {
+                        console.log(4)
+                        return resolve();//tra ve de ...
+                    }
+                    , 2000)
+            })
+        })
+
+
+</Script>
+
+</html>

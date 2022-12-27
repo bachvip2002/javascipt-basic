@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    while (true) {
+        var a = Number(prompt("Nhap a"));
+        if (isNaN(a) === false) {
+            break
+        }
+    }
+    while (true) {
+        var toanTu = prompt("Nhap toan tu");
+        if (toanTu === "+" || toanTu === "-" || toanTu === "*" || toanTu === "/") {
+            break;
+        }
+    }
+    while (true) {
+        var b = Number(prompt("Nhap b"));
+        if (isNaN(b) === false) {
+            break;
+        }
+    }
+    var ketQua = 0;
+
+    switch (toanTu) {
+        case "*":
+            ketQua = a * b;
+            document.write(a + toanTu + b + " = " + ketQua);
+            break;
+        case "+":
+            ketQua = a + b;
+            document.write(a + toanTu + b + " = " + ketQua);
+            break;
+        case "-":
+            ketQua = a - b;
+            document.write(a + toanTu + b + " = " + ketQua);
+            break;
+        case "/":
+            if (b !== 0) {
+                ketQua = a / b;
+                document.write(a + toanTu + b + " = " + ketQua);
+            } else {
+                document.write("Vo nghiem");
+            }
+            break;
+        default:
+            break;
+    }
+</script>
+</body>
+</html>

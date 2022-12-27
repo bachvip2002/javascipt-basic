@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .target {
+            display: flex;
+            flex-direction: column;
+        }
+    </style>
+</head>
+
+<body>
+    Date <input type="number" class="date"> <br>
+    Month <input type="number" class="month"> <br>
+    Year <input type="number" class="year"> <br>
+    <button type="submit">convert</button>
+    <h3 class="target">
+
+    </h3>
+</body>
+<script src="moment.js"></script>
+<script>
+    const $ = document.querySelector.bind(document);
+    const date = $('.date');
+    const month = $('.month');
+    const year = $('.year');
+    const button = $('button');
+    const target = $('.target');
+    var dateFormat = ['YYYY-MM-DD', 'DD/MM/YYYY', 'DD.MM.YYYY', 'DD, MMM YYYY', 'DD, MMMM YYYY']
+    button.onclick = function () {
+        showdate()
+    }
+    function showdate() {
+        dateFormat.forEach(
+            function(value,index){ 
+                var newdate =  moment(`${date.value}-${month.value}-${year.value}`, 'DD-MM-YYYY').format(value);
+                var span = document.createElement('span');
+                span.innerText = newdate;
+                target.appendChild(span);
+            }    
+        )
+    }
+
+</script>
+
+</html>

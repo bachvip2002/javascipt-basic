@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .target {
+            display: flex;
+            flex-direction: column;
+        }
+    </style>
+</head>
+
+<body>
+    Date <input type="number" class="date"> <br>
+    Month <input type="number" class="month"> <br>
+    Year <input type="number" class="year"> <br>
+    <button type="submit">convert</button>
+    <h3 class="target">
+
+    </h3>
+</body>
+<script>
+    const $ = document.querySelector.bind(document);
+    const date = $('.date');
+    const month = $('.month');
+    const year = $('.year');
+    const button = $('button');
+    const target = $('.target');
+    const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+    console.log(date, month, year, button, target)
+    button.onclick = function () {
+        showdate()
+    }
+    function showdate() {
+        var dates = new Date(`${year.value}-${month.value}-${date.value}`);
+        console.log(date.value, month.value, year.value);
+        console.log(dates);
+        
+        if (date.value != '' && month.value != '' && year.value != '') {
+            for (var i = 0; i < 5; i++) {
+                var span = document.createElement('span');
+                if (i == 0) {
+                    span.innerHTML = `${dates.getDate()} - ${dates.getMonth() + 1} - ${dates.getFullYear()}`;
+                } else if (i == 1) {
+                    span.innerHTML = `${dates.getMonth() + 1} / ${dates.getDate()} /  ${dates.getFullYear()}`;
+                } else if (i == 2) {
+                    span.innerHTML = `${dates.getMonth() + 1} . ${dates.getDate()} . ${dates.getFullYear()}`;
+                } else if (i == 3) {
+                    let thang = months[month.value - 1].substring(0,3);
+                    span.innerHTML = `${date.value},${thang} ${year.value}`;
+                } else if (i == 4) {
+                    span.innerHTML = `${date.value},${months[month.value - 1]} ${year.value} <br> <hr> <br>`;
+                }
+                target.appendChild(span)
+            }
+        }
+    }
+
+</script>
+
+</html>

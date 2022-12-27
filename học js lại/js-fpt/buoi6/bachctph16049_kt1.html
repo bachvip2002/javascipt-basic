@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    Tên xe
+    <input type="text" id="car_name">
+    <div class="show-mess"></div>
+    <br>
+    Biển số
+    <input type="text" id="number">
+    <div class="show-mess"></div>
+    <br>
+    Ngày nhận
+    <input type="date" id="day">
+    <div class="show-mess"></div>
+    <br>
+    <button>Thêm</button>
+    <ul id="target">
+
+    </ul>
+</body>
+<script>
+    var $ = document.querySelector.bind(document)
+    var $$ = document.querySelectorAll.bind(document)
+    const name_car = $('#car_name')
+    const number = $('#number')
+    const get_day = $('#day')
+    const get_value = $('#target')
+    const show_mess = $$('.show-mess')
+    var xe = []
+    var i = 0;
+    $('button').onclick = function () {
+        kt()
+    }
+    function add() {
+        i++;
+        xe.push({
+            id: i,
+            name: name_car.value,
+            bienso: number.value,
+            day: get_day.value
+        })
+
+        // console.log( get_day.value.subtring(6,10))
+        // li = document.createElement('li')
+        // li.innerHTML = i + " , " + name_car.value + " , " + number.value + " , " + get_day.value
+        // get_value.appendChild(li)
+
+        show = xe.map(
+            function(value,index){
+                return "<li>"+value.id+value.name+value.bienso+value.day+"</li>";
+            }
+        )
+        get_value.innerHTML = show.join(' ');//join bien mang thanh 1 chuoi
+    }
+    
+    function kt() {
+        // ktname = /^[0-9a-zA-Z]{3,100}$/;
+        // ktbien = /^[0-9a-zA-Z\W]{3}-[0-9]{4}$/;
+        // ktday = /^[0-9]{2}-[0-9]{2}-[0-9]{0,4}$/;
+        // var check
+        // if (name_car.value.length == 0) {
+        //     check = false
+        //     show_mess[0].innerHTML = "ban nhap ten xe rong"
+        // }
+        // else if (ktname.test(name_car.value) == false) {
+        //     check = false
+        //     show_mess[0].innerHTML = "ban nhap ten theo" + ktname
+        // }
+        // else {
+        //     show_mess[0].innerHTML = ""
+        // }
+        
+        // if (number.value.length == 0) {
+        //     check = false
+        //     show_mess[1].innerHTML = "ban nhap bien so rong"
+        // } else if (ktbien.test(number.value) == false) {
+        //     check = false
+        //     show_mess[1].innerHTML = "ban nhap bien so theo" + ktbien
+        // } else {
+        //     show_mess[1].innerHTML = ""
+        // }
+
+        // if (get_day.value.length == 0) {
+        //     check = false
+        //     show_mess[2].innerHTML = "ban nhap ngay rong"
+        // }else if (ktday.test(get_day.value) == false) {
+        //     check = false
+        //     show_mess[2].innerHTML = "ban nhap ngay theo " + ktbien
+        // } else {
+        //     show_mess[2].innerHTML = ""
+        // }
+
+        // if (check != false || check == null) {
+            add();
+        // }
+
+    }
+
+</script>
+
+</html>

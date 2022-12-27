@@ -1,0 +1,18 @@
+#form {
+  width: 50vw;
+  height: 50vh !important;
+  position: relative;
+}
+
+#result {
+  width: 50vw;
+  height: 25vh !important;
+  background-color: #1f1f1f;
+  color: lightgreen;
+}
+
+#run {
+  position: absolute;
+  top: calc(100% - 2rem);
+  left: calc(100% - 4rem);
+}

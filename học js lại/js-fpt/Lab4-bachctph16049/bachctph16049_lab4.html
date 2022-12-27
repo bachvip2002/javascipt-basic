@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            width: 20%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        th {
+            border: 1px solid brown;
+        }
+
+        th:hover {
+            background-color: burlywood;
+            transition: 0.3s;
+        }
+
+        td {
+            border: 1px solid rgb(250, 137, 137);
+        }
+    </style>
+</head>
+
+<body>
+
+    Mã SV <input type="text">
+    Họ tên <input type="text">
+    Điểm <input type="number">
+    <button type="button">Thêm</button>
+    <table>
+        <thead>
+            <tr>
+                <th>Mã sv</th>
+                <th>Họ tên</th>
+                <th>Điểm</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+
+    <input type="text" placeholder="tim kiem">
+</body>
+<script>
+    const $ = document.querySelector.bind(document);
+    const $$ = document.querySelectorAll.bind(document);
+    var body = $('tbody');
+    var input = $$('input');
+    var title = $$('th');
+    var arr = [];
+    $('button').onclick = () => {
+        add(input);
+    }
+    function add(input) {
+        arr.push({
+            masv: input[0].value,
+            name: input[1].value,
+            point: input[2].value
+        });
+        show(arr);
+
+        title[0].onclick = () => {
+            arr_new = arr.sort(
+                function (a, b) {
+                    return a.masv - b.masv;
+                }
+            )
+            show(arr_new);
+        }
+        title[1].onclick = () => {
+            arr_new = arr.sort(
+                function (a, b) {
+                    return a.name - b.name;
+                }
+            )
+            show(arr_new);
+        }
+        title[2].onclick = () => {
+            arr_new = arr.sort(
+                function (a, b) {
+                    return a.point - b.point;
+                }
+            )
+            show(arr_new);
+        }
+        input[3].oninput = (a) => {
+            // for (let i = 0; i < arr.length; i++) {
+            //     if (arr[i].name == a.target.value) {
+            //         arr_new.push(arr[i])
+
+            //     }
+            // }
+            arr_new = arr.filter(
+                function (value) {
+                    return value.name == a.target.value;
+                }
+            )
+            console.log(arr_new);
+            show(arr_new);
+        }
+
+    }
+    function show(arr) {
+        arr_new = arr.map(
+            function (value, index) {
+                return `<tr> <td>${value.masv}</td>
+                <td>${value.name}</td><td>${value.point}</td></tr>`
+            }
+        );
+        body.innerHTML = arr_new.join('');
+    }
+</script>
+
+</html>

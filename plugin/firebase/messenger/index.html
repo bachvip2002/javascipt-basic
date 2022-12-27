@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>body {
+        background-color:#ccc;
+     }   
+     .panel-title {
+       display:inline;
+     }
+     tr td:first-child {
+       font-weight: bold;
+       width: 100px;
+     }
+     #scollDiv {
+       max-height: 500px;
+       overflow-y: scroll;
+     }
+     .container {
+       margin-top: 20px;
+     }</style>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+          <div class="col-md-6 col-md-offset-3">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="panel panel-primary">
+                  <div class="panel-heading">
+                    <i class="glyphicon glyphicon-user"></i>
+                    <h6 class="panel-title">ChatBox</h6>
+                    <div class="btn-group btn-group-xs pull-right">
+                      Hello, <span id="txtName"></span>
+                    </div>
+                  </div>
+                  <div class="panel-body">
+                    <div class="row">
+                      <div class="col-sm-12" id="scollDiv">
+                        <table class="table table-hover" id="messageContainer">
+                          <tr></tr>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="panel-footer">
+                    <form>
+                      <div class="input-group input-group-sm">
+                        <span class="input-group-addon">
+                          <i class="glyphicon glyphicon-pencil"></i>
+                        </span>
+                        <input type="text" class="form-control" id="txtText" placeholder="Type your message here ..">
+                        <span class="input-group-btn">
+                          <button class="btn btn-primary" type="submit" id="btnSend">Send</button>
+                        </span>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+          </div>
+</body>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+<script type="module">
+     import { initializeApp } from "https://www.gstatic.com/firebasejs/9.9.3/firebase-app.js";
+    const firebaseConfig = {
+        apiKey: "AIzaSyCLb1Auk2CtIs54gvd-G1NbfeLZd51VS7Y",
+        authDomain: "colwell-f5d81.firebaseapp.com",
+        databaseURL: "https://colwell-f5d81-default-rtdb.firebaseio.com",
+        projectId: "colwell-f5d81",
+        storageBucket: "colwell-f5d81.appspot.com",
+        messagingSenderId: "300941157204",
+        appId: "1:300941157204:web:64e6f5496643a1ea9f5ec1",
+        measurementId: "G-B3X0L16G47"
+    };
+
+    const app = initializeApp(firebaseConfig);
+
+     var name = prompt('Enter your name', 'guest');
+    if (name) {
+        $('#btnSend').on('click', function (e) {
+            e.preventDefault();
+            var text = $('#txtText').val();
+            if (text) {
+                myFirebase.push({name: name, text: text});
+                $('#txtText').val('');
+            }
+        });
+    }
+
+    myFirebase.on('child_added', function (snapshot){
+        var message = snapshot.val();
+        var html =
+            '<tr>' +
+                '<td><i class="glyphicon glyphicon-user"></i> ' + message.name + ': </td>' +
+                '<td>' + message.text + '</td>' +
+            '</tr>';
+    });
+</script>
+</html>
